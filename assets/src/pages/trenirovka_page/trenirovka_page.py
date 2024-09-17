@@ -18,7 +18,7 @@ class Trenirovka_page(ft.UserControl):
                         ft.Column(controls=[
                             ft.Text('Тренировка',text_align='center',color=c_white),
                             
-                        ]),padding=10,height=650
+                        ]),padding=10,height=690
                     )
                 ]
             ),expand=2

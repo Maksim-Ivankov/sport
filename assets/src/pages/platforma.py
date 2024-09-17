@@ -11,21 +11,11 @@ class Platforma(ft.UserControl):
     def __init__(self,page):
         super().__init__()
         self.page = page
-        self.punkts = {
-                'Посещение':Visit_page(),
-                'Тренировка':Trenirovka_page(),
-                'Вес':Masa_page(),
-            }
-        self.changes_menu = {
-             '0':'Посещение',
-             '1':'Тренировка',
-             '2':'Вес',
-        }
+        self.page_one = 'Посещение'
 
-    def change_menu(self,e):
-        self.menu_update(self.changes_menu[e.data])
-
-    def print_window(self,page):
+    def build(self):
+        # отрисовка страницы согласно выбранному пункту меню
+        def print_window(page,punkt_menu):
             platforma = ft.Container(
                 ft.Column(
                     controls=[
@@ -33,20 +23,29 @@ class Platforma(ft.UserControl):
                             expand=2, content=page
                         ),
                         ft.Container(
-                            content=Menu(self.change_menu),
+                            content=Menu(self.page,callback,punkt_menu),
                         ),
                     ]),
             )
             return platforma
-    
-    # выбор пункта меню
-    def menu_update(self,punkt_menu='Посещение'):
-        self.page_select = self.punkts[punkt_menu]
-        self.controls = []
-        self.update()
-        self.controls.append(self.print_window(self.page_select))
-        self.update()
+        
+        # выбор пункта меню
+        def callback(punkt_menu=self.page_one):
+            self.page_select = punkts[punkt_menu]
+            self.controls = []
+            self.update()
+            self.controls.append(print_window(self.page_select,punkt_menu))
+            self.update()
 
+        
+        punkts = {
+                'Посещение':Visit_page(),
+                'Тренировка':Trenirovka_page(),
+                'Вес':Masa_page(),
+            }
 
-    def build(self):
-        return self.print_window(self.punkts['Посещение'])
+        self.page_select = punkts[self.page_one]
+
+        # return ft.Text('12121')
+        
+        return print_window(self.page_select,self.page_one)
