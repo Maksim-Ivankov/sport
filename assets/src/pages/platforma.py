@@ -11,18 +11,21 @@ class Platforma(ft.UserControl):
     def __init__(self,page):
         super().__init__()
         self.page = page
-        self.page_one = 'Посещение'
-        
+        self.punkts = {
+                'Посещение':Visit_page(),
+                'Тренировка':Trenirovka_page(),
+                'Вес':Masa_page(),
+            }
+        self.changes_menu = {
+             '0':'Посещение',
+             '1':'Тренировка',
+             '2':'Вес',
+        }
 
     def change_menu(self,e):
-        print(e.data)
+        self.menu_update(self.changes_menu[e.data])
 
-    def print_page(self):
-        
-
-    def build(self):
-        # отрисовка страницы согласно выбранному пункту меню
-        def print_window(page,punkt_menu):
+    def print_window(self,page):
             platforma = ft.Container(
                 ft.Column(
                     controls=[
@@ -35,28 +38,15 @@ class Platforma(ft.UserControl):
                     ]),
             )
             return platforma
-        
-        # выбор пункта меню
-        def callback(punkt_menu=self.page_one):
-            self.page_select = punkts[punkt_menu]
-            self.controls = []
-            self.update()
-            self.controls.append(print_window(self.page_select,punkt_menu))
-            self.update()
+    
+    # выбор пункта меню
+    def menu_update(self,punkt_menu='Посещение'):
+        self.page_select = self.punkts[punkt_menu]
+        self.controls = []
+        self.update()
+        self.controls.append(self.print_window(self.page_select))
+        self.update()
 
-        
-        punkts = {
-                'Посещение':Visit_page(),
-                'Тренировка':Trenirovka_page(),
-                'Вес':Masa_page(),
-                # 'Историческая торговля':Hisorical_trade_page(self.page),
-                # 'Тестовая торговля':Test_trade_page(),
-                # 'Торговый робот':Trade_robot_page(),
-                # 'FAQ':Faq_page(),
-                # 'Профиль':Prifile_page(),
-                # 'Настройки программы':Settings_page(),
-            }
 
-        self.page_select = punkts[self.page_one]
-        
-        return print_window(self.page_select,self.page_one)
+    def build(self):
+        return self.print_window(self.punkts['Посещение'])
