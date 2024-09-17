@@ -9,7 +9,7 @@ c_green = '#0AFF89'
 c_red = '#FF0A0A'
 
 
-width_window_platforma = 400
-height_window_platforma = 400
+width_window_platforma = 360
+height_window_platforma = 800
 
 version_desctop = 'v1.25.11'

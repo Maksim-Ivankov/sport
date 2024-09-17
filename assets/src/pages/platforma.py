@@ -2,22 +2,35 @@ import flet as ft
 from assets.variable import *
 from assets.imports import *
 
-from assets.src.pages.main_page.main_page import Main_page
+from assets.src.pages.visit_page.visit_page import Visit_page
+from assets.src.pages.trenirovka_page.trenirovka_page import Trenirovka_page
+from assets.src.pages.masa_page.masa_page import Masa_page
+from assets.src.menu.menu import Menu
 
 class Platforma(ft.UserControl):
     def __init__(self,page):
         super().__init__()
         self.page = page
-        self.page_one = 'Главная'
+        self.page_one = 'Посещение'
+        
+
+    def change_menu(self,e):
+        print(e.data)
+
+    def print_page(self):
+        
 
     def build(self):
         # отрисовка страницы согласно выбранному пункту меню
         def print_window(page,punkt_menu):
             platforma = ft.Container(
-                ft.Row(
+                ft.Column(
                     controls=[
                         ft.Container(
                             expand=2, content=page
+                        ),
+                        ft.Container(
+                            content=Menu(self.change_menu),
                         ),
                     ]),
             )
@@ -33,7 +46,9 @@ class Platforma(ft.UserControl):
 
         
         punkts = {
-                'Главная':Main_page(),
+                'Посещение':Visit_page(),
+                'Тренировка':Trenirovka_page(),
+                'Вес':Masa_page(),
                 # 'Историческая торговля':Hisorical_trade_page(self.page),
                 # 'Тестовая торговля':Test_trade_page(),
                 # 'Торговый робот':Trade_robot_page(),

@@ -12,7 +12,7 @@ class Main:
         
         self.page: ft.Page = page
         self.page.title = "Треня"
-        # self.page.window_height, self.page.window_width = height_window_platforma, width_window_platforma
+        self.page.window_height, self.page.window_width = height_window_platforma, width_window_platforma
         # self.page.theme_mode = "dark" 
         # self.page.window_resizable = False
         # self.page.window_center()
