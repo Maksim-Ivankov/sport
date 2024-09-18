@@ -20,7 +20,7 @@ class Main:
         self.main_print = ft.Container( # общий контейнер на страницу45rк
         #    content = ft.Text('123123123'),
            content = Platforma(self.page),
-        #    expand = True,
+           expand = True,
            padding=ft.padding.only(bottom=-10)
         )
         self.page.add(self.main_print)

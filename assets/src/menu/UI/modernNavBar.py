@@ -2,7 +2,7 @@
 import flet as ft
 from assets.variable import *
 from assets.imports import *
-from functools import partial
+
 
 class ModernNavBar(ft.UserControl):
 
@@ -19,12 +19,26 @@ class ModernNavBar(ft.UserControl):
 
     # элемент меню
     def element_menu(self,punkt,color_text):
+        if color_text == c_yelow:
+            return ft.Container(
+                data = punkt,
+                border=ft.border.all(1,c_white),
+                # on_hover=lambda e: self.HighLight(e),
+                on_click=lambda e: self.change_menu(e),
+                width=100,
+                padding=ft.padding.only(top=20,bottom=20),
+                height=60,
+                border_radius=0,
+                margin=ft.margin.only(bottom=-10),
+                content=ft.Container(ft.Text(value=punkt,color=color_text,size=12,opacity=1,text_align='center'))
+                )
         return ft.Container(
             data = punkt,
             # on_hover=lambda e: self.HighLight(e),
             on_click=lambda e: self.change_menu(e),
             width=100,
-            height=40,
+            padding=ft.padding.only(top=20,bottom=20),
+            height=60,
             border_radius=0,
             margin=ft.margin.only(bottom=-10),
             content=ft.Container(ft.Text(value=punkt,color=color_text,size=12,opacity=1,text_align='center'))
@@ -48,8 +62,9 @@ class ModernNavBar(ft.UserControl):
               
         modern_nav_bar =  ft.Container(  
             width=width_window_platforma,
+            height=60,
             expand=True,
-            padding=ft.padding.only(top=20),
+            # padding=ft.padding.only(top=20),
             alignment=ft.alignment.center,
             content=ft.Column(
                 controls=[

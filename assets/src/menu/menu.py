@@ -17,23 +17,7 @@ class Menu(ft.UserControl):
 
     def build(self):
                 
-        
-        # def open_menu(e):
-        #     self.time_event_hover = time.time()
-        #     # print(self.time_event_hover - self.time_event_click)
-        #     if (self.time_event_hover - self.time_event_click)>0.5:
-        #         # print(self.time_event_hover)
-        #         self.controls[0].width = 200
-        #         self.controls[0].update()
-        #         self.controls[0].content.controls[0].content.controls[3].content.controls[0].content.controls[0].controls[1].opacity = 1
-        #         # self.controls[0].content.controls[0].content.controls[3].content.controls[0].content.controls[0].content.opacity = 1
-        #         # self.controls[0].content.controls[0].content.controls[3].content.controls[0].content.controls[0].content.update()
-        #         self.controls[0].content.controls[0].content.controls[0].content.src = 'src/img/logo_2.png'
-        #         self.controls[0].content.controls[0].content.controls[0].update()
-        #         for items in self.controls[0].content.controls[0].content.controls[2].controls:
-        #             if isinstance(items,ft.Container):
-        #                 items.content.controls[1].opacity = 1
-        #                 items.content.update()
+
         
         # Контейнер меню
         self.menu = ft.Container(

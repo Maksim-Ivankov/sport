@@ -18,7 +18,7 @@ class Visit_page(ft.UserControl):
                         ft.Column(controls=[
                             ft.Text('Посещение',text_align='center',color=c_white),
                             
-                        ]),padding=10,height=690
+                        ]),padding=10,height=650,width=390
                     )
                 ]
             ),expand=2
