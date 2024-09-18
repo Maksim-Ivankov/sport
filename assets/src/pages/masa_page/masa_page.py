@@ -36,7 +36,11 @@ class Masa_page(ft.UserControl):
                         ft.Text(f'{value} кг'),
                     ])
                 ))
-        list_massa = list(reversed(list_massa))
+        
+        list_massa = [ft.Container(ft.Row(controls=[ft.Text('09-17-2024 | 11:02'),ft.Text(f'132.56 кг'),])),
+                      ft.Container(ft.Row(controls=[ft.Text('09-16-2024 | 10:15'),ft.Text(f'132.50 кг'),])),
+                      ]
+        # list_massa = list(reversed(list_massa))
         self.main_page = ft.Container(
             ft.Column(
                 controls=[

@@ -13,7 +13,7 @@ class Platforma(ft.UserControl):
     def __init__(self,page):
         super().__init__()
         self.page = page
-        self.page_one = 'Вес'
+        self.page_one = 'Посещение'
 
     def build(self):
         # отрисовка страницы согласно выбранному пункту меню
