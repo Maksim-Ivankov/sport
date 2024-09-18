@@ -45,7 +45,7 @@ class Pervie_two_mounth_page(ft.UserControl):
                 controls=[
                     ft.Container(
                         ft.Column(controls=[
-                            ft.Text('Первые два месяца тренировок',text_align='center',color=c_white,width=390),
+                            ft.Text('Первые два месяца тренировок',text_align='center',color=c_yelow,width=390),
                             ft.Container(width=390,height=1,margin=ft.margin.only(top=20,bottom=40),bgcolor=c_white),
                             ft.Column(self.items)
                             

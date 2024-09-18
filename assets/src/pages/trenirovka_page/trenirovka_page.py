@@ -20,7 +20,7 @@ class Trenirovka_page(ft.UserControl):
                 controls=[
                     ft.Container(
                         ft.Column(controls=[
-                            ft.Text('Тринировки | Техники | Инструкции',text_align='center',color=c_white,width=390),
+                            ft.Text('Тринировки | Техники | Инструкции',text_align='center',color=c_yelow,width=390),
                             ft.Container(width=390,height=1,margin=ft.margin.only(top=20,bottom=40),bgcolor=c_white),
                             ft.Container(
                                 ft.Text('Первые 2 месяца',color=c_blue,text_align='center',size=16),

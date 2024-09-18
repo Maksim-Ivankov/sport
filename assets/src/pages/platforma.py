@@ -13,7 +13,7 @@ class Platforma(ft.UserControl):
     def __init__(self,page):
         super().__init__()
         self.page = page
-        self.page_one = 'Тренировка 1 | Плчечи'
+        self.page_one = 'Вес'
 
     def build(self):
         # отрисовка страницы согласно выбранному пункту меню
@@ -45,7 +45,7 @@ class Platforma(ft.UserControl):
         punkts = {
                 'Посещение':Visit_page(),
                 'Тренировка':Trenirovka_page(callback),
-                'Вес':Masa_page(),
+                'Вес':Masa_page(self.page,callback),
                 'Первые 2 месяца':Pervie_two_mounth_page(callback),
                 'Тренировка 1 | Плчечи':Print_tren('1'),
                 'Тренировка 2 | Биц + триц':Print_tren('2'),
