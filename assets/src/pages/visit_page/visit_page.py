@@ -5,18 +5,52 @@ from assets.imports import *
 
 
 class Visit_page(ft.UserControl):
-    # def __init__(self,change_menu):
-    #     super().__init__()
-    #     self.change_menu = change_menu
+    def __init__(self):
+        super().__init__()
+        list_key = ['0','1','2','3','4','5','6','7','8','9',]
+        count = 0
+        self.visited_sl = {}
+        if os.path.isfile(f'{str(os.getcwd())}/data_visited.txt'):
+            with open(f'{str(os.getcwd())}/data_visited.txt') as file:
+                for line in file:
+                    if len(line)!=1:
+                        self.visited_sl[str(count)] = line.split('|')
+                        count+=1
+                    
+        else:
+            print('Файла нет')
+            self.visited_sl = {
+                '0':['0','0','0','0','0','0','0','0','0','0'],
+                '1':['0','0','0','0','0','0','0','0','0','0'],
+                '2':['0','0','0','0','0','0','0','0','0','0'],
+                '3':['0','0','0','0','0','0','0','0','0','0'],
+                '4':['0','0','0','0','0','0','0','0','0','0'],
+                '5':['0','0','0','0','0','0','0','0','0','0'],
+                '6':['0','0','0','0','0','0','0','0','0','0'],
+                '7':['0','0','0','0','0','0','0','0','0','0'],
+                '8':['0','0','0','0','0','0','0','0','0','0'],
+                '9':['0','0','0','0','0','0','0','0','0','0'],
+            }
+            for key,value in self.visited_sl.items():
+                file = open(f'{str(os.getcwd())}/data_visited.txt', 'a')
+                file.write(f'\n{'|'.join(value)}')
+                file.close()
 
     def build(self):
         
         row_mas = []
         col_mas = []
-        for i in range(10):
-            row_mas.append(ft.Container(width=24,height=24,border=ft.border.all(1,c_white),margin=-2))
-        for i in range(10):
+        # for i in range(10):
+        #     row_mas.append(ft.Container(width=24,height=24,border=ft.border.all(1,c_white),margin=-2))
+        # for i in range(10):
+        #     col_mas.append(ft.Row(controls=row_mas))
+            
+        for key,value in self.visited_sl.items():
+            for i in value:
+                row_mas.append(ft.Container(width=24,height=24,border=ft.border.all(1,c_white),margin=-2))
             col_mas.append(ft.Row(controls=row_mas))
+            row_mas[:]=[]
+        
         self.main_page = ft.Container(
             ft.Column(
                 controls=[
