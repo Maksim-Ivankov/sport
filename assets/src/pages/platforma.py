@@ -43,7 +43,7 @@ class Platforma(ft.UserControl):
 
         
         punkts = {
-                'Посещение':Visit_page(),
+                'Посещение':Visit_page(callback),
                 'Тренировка':Trenirovka_page(callback),
                 'Вес':Masa_page(self.page,callback),
                 'Первые 2 месяца':Pervie_two_mounth_page(callback),
