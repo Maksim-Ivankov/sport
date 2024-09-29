@@ -2,16 +2,16 @@ import flet as ft
 from assets.variable import *
 from assets.imports import *
 
-from assets.src.pages.visit_page.visit_page import Visit_page
-from assets.src.pages.trenirovka_page.trenirovka_page import Trenirovka_page
-from assets.src.pages.masa_page.masa_page import Masa_page
+from assets.src.pages.semia_page.semia_page import Semia_page
+from assets.src.pages.timer_page.timer_page import Timer_page
+from assets.src.pages.work_page.work_page import Work_page
 from assets.src.menu.menu import Menu
 
 class Platforma(ft.UserControl):
     def __init__(self,page):
         super().__init__()
         self.page = page
-        self.page_one = 'Таймер'
+        self.page_one = 'Работа'
 
     def build(self):
         # отрисовка страницы согласно выбранному пункту меню
@@ -41,9 +41,9 @@ class Platforma(ft.UserControl):
 
         
         punkts = {
-                'Работа':Visit_page(callback),
-                'Таймер':Trenirovka_page(callback),
-                'Семья':Masa_page(self.page,callback),
+                'Семья':Semia_page(self.page,callback),
+                'Таймер':Timer_page(callback),
+                'Работа':Work_page(callback),
             }
 
         self.page_select = punkts[self.page_one]

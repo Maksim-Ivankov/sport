@@ -22,7 +22,7 @@ class Semia_page(ft.UserControl):
         file = open(f'{str(os.getcwd())}/data_massa.txt', 'a')
         file.write(f'\n{str(time.strftime("%m-%d-%Y | %H:%M"))} | {str(self.input_data)}')
         file.close()
-        self.callback('Вес')
+        self.callback('Семья')
 
 
     def build(self):
@@ -36,7 +36,7 @@ class Semia_page(ft.UserControl):
             for item in array_mass_text:
                 if len(item)>0:
                     list_massa.append(ft.Container(
-                        ft.Text(f'{item} кг')
+                        ft.Text(f'{item}')
                     ))
         list_massa = reversed(list_massa)
         self.main_page = ft.Container(
@@ -44,9 +44,9 @@ class Semia_page(ft.UserControl):
                 controls=[
                     ft.Container(
                         ft.Column(controls=[
-                            ft.Text('Изменения веса',text_align='center',color=c_yelow,width=390),
+                            ft.Text('Развлечения с семьёй',text_align='center',color=c_yelow,width=390),
                             ft.Container(width=390,height=1,margin=ft.margin.only(top=20,bottom=20),bgcolor=c_white),
-                            ft.Text('Введи текущий вес в кг',text_align='center',color=c_white,width=390),
+                            ft.Text('Введи комментарии',text_align='center',color=c_white,width=390),
                             ft.Container(
                                 ft.TextField(
                                 on_change=self.input_save,
@@ -59,7 +59,7 @@ class Semia_page(ft.UserControl):
                                 text_size=12,
                                 
                             ),margin=ft.margin.only(left=55)),
-                            ft.Container(ft.Container(ft.Text('Сохранить вес',color=c_blue),alignment=ft.alignment.center),bgcolor=c_yelow,height=28,margin=ft.margin.only(top=10,left=55),border = ft.border.all(0,c_white),width=200,on_click=self.save_massa ),
+                            ft.Container(ft.Container(ft.Text('Сохранить',color=c_blue),alignment=ft.alignment.center),bgcolor=c_yelow,height=28,margin=ft.margin.only(top=10,left=55),border = ft.border.all(0,c_white),width=200,on_click=self.save_massa ),
                             ft.Container(width=390,height=1,margin=ft.margin.only(top=20,bottom=20),bgcolor=c_white),
                             ft.Container(
                                 ft.Column(controls=list_massa,scroll=ft.ScrollMode.ALWAYS),
