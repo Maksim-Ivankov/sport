@@ -4,7 +4,7 @@ from assets.variable import *
 from assets.imports import *
 
 
-class Masa_page(ft.UserControl):
+class Semia_page(ft.UserControl):
     def __init__(self,page,callback):
         super().__init__()
         self.page = page

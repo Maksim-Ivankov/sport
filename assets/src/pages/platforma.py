@@ -6,14 +6,12 @@ from assets.src.pages.visit_page.visit_page import Visit_page
 from assets.src.pages.trenirovka_page.trenirovka_page import Trenirovka_page
 from assets.src.pages.masa_page.masa_page import Masa_page
 from assets.src.menu.menu import Menu
-from assets.src.pages.trenirovka_page.pages.pervie_two_mounth_page.pervie_two_mounth_page import Pervie_two_mounth_page
-from assets.src.pages.trenirovka_page.pages.pervie_two_mounth_page.print_tren import Print_tren
 
 class Platforma(ft.UserControl):
     def __init__(self,page):
         super().__init__()
         self.page = page
-        self.page_one = 'Посещение'
+        self.page_one = 'Таймер'
 
     def build(self):
         # отрисовка страницы согласно выбранному пункту меню
@@ -43,15 +41,9 @@ class Platforma(ft.UserControl):
 
         
         punkts = {
-                'Посещение':Visit_page(callback),
-                'Тренировка':Trenirovka_page(callback),
-                'Вес':Masa_page(self.page,callback),
-                'Первые 2 месяца':Pervie_two_mounth_page(callback),
-                'Тренировка 1 | Плчечи':Print_tren('1'),
-                'Тренировка 2 | Биц + триц':Print_tren('2'),
-                'Тренировка 3 | Ноги':Print_tren('3'),
-                'Тренировка 4 | Грудь':Print_tren('4'),
-                'Тренировка 5 | Спина':Print_tren('5'),
+                'Работа':Visit_page(callback),
+                'Таймер':Trenirovka_page(callback),
+                'Семья':Masa_page(self.page,callback),
             }
 
         self.page_select = punkts[self.page_one]

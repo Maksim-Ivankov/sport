@@ -49,9 +49,9 @@ class ModernNavBar(ft.UserControl):
     def build(self):
 
         punkts_menu = [
-            'Посещение',
-            'Тренировка',
-            'Вес',
+            'Работа',
+            'Таймер',
+            'Семья',
         ]
         self.items = []
         for punkt in punkts_menu:

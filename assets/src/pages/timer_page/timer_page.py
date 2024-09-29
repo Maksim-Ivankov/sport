@@ -4,7 +4,7 @@ from assets.variable import *
 from assets.imports import *
 
 
-class Trenirovka_page(ft.UserControl):
+class Timer_page(ft.UserControl):
     def __init__(self,callback):
         super().__init__()
         self.callback = callback
